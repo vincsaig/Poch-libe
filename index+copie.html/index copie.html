@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Poch'Lib</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  	</head>
+  	<body>
+		<div id="myBooks">
+			<h1 class="title">Poch'Lib</h1>
+			<h2 class="h2">Nouveau Livre</h2>
+			<button id="formLoad" type="submit" onclick="loadForm()">Ajouter un livre</button>
+			<form>
+				<label for="title" id ="titleInputLabel" hidden="true">Titre du livre</label>
+				<input type="text" id="title" hidden="true">
+				<label for="Author" id ="authorInputLabel" hidden="true">Auteur</label>
+				<input type="text" id="author" hidden="true">
+			</form>
+			<button id="formSubmit" type="submit" onclick="get()" hidden="true">Search</button>
+			<hr>
+			<div id="books" class = 'booklist'></div>
+			<div id="content">
+				<h2>Ma poch'liste</h2>
+			</div>
+			<script type = "text/javascript">
+				function loadForm(){
+					document.getElementById('formLoad').hidden = true;
+					document.getElementById('titleInputLabel').hidden = false;
+					document.getElementById('title').hidden = false;
+					document.getElementById('authorInputLabel').hidden = false;
+					document.getElementById('author').hidden = false;
+					document.getElementById('formSubmit').hidden = false;
+				}
+
+				function get(){
+					console.log('Bonjour');
+					userAction();
+				}
+
+				const userAction = async () => {
+					document.getElementById('books').innerHTML = "";
+					let title = document.getElementById('title').value;
+					let author = document.getElementById('author').value;
+					console.log('https://www.googleapis.com/books/v1/volumes?q='+ title + '+inauthor:' + author)
+					const response = await fetch('https://www.googleapis.com/books/v1/volumes?q='+ title + '+inauthor:' + author);
+					const myJson = await response.json(); //extract JSON from the http response
+					console.log(myJson);
+					//console.log(JSON.stringify(myJson));
+					//document.getElementById("livre").innerHTML = JSON.stringify(myJson);
+					let books = document.createElement("div");
+					const bookArr = myJson.items;
+					for(let i = 0 ; i < bookArr.length; i++){
+						//document.getElementById('livre').insertAdjacentHTML('beforeend', myArr[i].id);
+						//document.getElementById('livre').insertAdjacentHTML('beforeend', "<br>");
+						bookProcessing(bookArr[i], books);
+					}
+					console.log(books)
+					document.getElementById('books').appendChild(books);
+				}
+
+				function bookProcessing(bookInfo, booksDiv){
+					let book = document.createElement("div");
+					book.className = 'book';
+
+					const author = 'authors' in bookInfo.volumeInfo ? bookInfo.volumeInfo.authors[0] : 'Non renseigné';
+					const title = 'title' in bookInfo.volumeInfo ? bookInfo.volumeInfo.title : 'Non renseigné';
+					const description = 'description' in bookInfo.volumeInfo ? bookInfo.volumeInfo.description : 'Non renseigné';
+					const thumbnail = 
+					'imageLinks' 
+					in 
+					bookInfo.volumeInfo 
+					?
+					bookInfo.volumeInfo.imageLinks.thumbnail
+					:
+					"D:\\OpenClassroom\\P6\\images\\unavailable.png";
+
+					bookElementProcessing(book,'id',bookInfo.id);
+					bookElementProcessing(book,'title',title);
+					bookElementProcessing(book,'author',author);
+					bookElementProcessing(book,'description',description);
+					bookImageProcessing(book,thumbnail);
+
+					booksDiv.appendChild(book);
+				}
+
+				function bookElementProcessing(book,bookClassName,bookElement){
+					let element = document.createElement("div");
+					element.className = bookClassName;
+					element.innerHTML = bookElement;
+					book.appendChild(element);
+				}
+
+				function bookImageProcessing(book,image){
+					let thumbnail = document.createElement("img");
+					thumbnail.src = image ? image : "D:\\OpenClassroom\\P6\\images\\unavailable.png";
+					book.appendChild(thumbnail);
+				}
+			</script>
+		</div>
+  	</body>
+</html>
