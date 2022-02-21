@@ -4,6 +4,7 @@
 		<title>Poch'Lib</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="D:\OpenClassroom\P6\Poch-libe\CSS\book.css">
   	</head>
   	<body>
 		<div id="myBooks">
@@ -18,7 +19,7 @@
 			</form>
 			<button id="formSubmit" type="submit" onclick="get()" hidden="true">Search</button>
 			<hr>
-			<div id="books" class = 'booklist'></div>
+			<div id="books" class = "booklist"></div>
 			<div id="content">
 				<h2>Ma poch'liste</h2>
 			</div>
@@ -47,18 +48,16 @@
 					console.log(myJson);
 					//console.log(JSON.stringify(myJson));
 					//document.getElementById("livre").innerHTML = JSON.stringify(myJson);
-					let books = document.createElement("div");
 					const bookArr = myJson.items;
 					for(let i = 0 ; i < bookArr.length; i++){
 						//document.getElementById('livre').insertAdjacentHTML('beforeend', myArr[i].id);
 						//document.getElementById('livre').insertAdjacentHTML('beforeend', "<br>");
-						bookProcessing(bookArr[i], books);
+						bookProcessing(bookArr[i]);
 					}
 					console.log(books)
-					document.getElementById('books').appendChild(books);
 				}
 
-				function bookProcessing(bookInfo, booksDiv){
+				function bookProcessing(bookInfo){
 					let book = document.createElement("div");
 					book.className = 'book';
 
@@ -74,13 +73,13 @@
 					:
 					"D:\\OpenClassroom\\P6\\images\\unavailable.png";
 
-					bookElementProcessing(book,'id',bookInfo.id);
 					bookElementProcessing(book,'title',title);
+					bookElementProcessing(book,'id',bookInfo.id);
 					bookElementProcessing(book,'author',author);
 					bookElementProcessing(book,'description',description);
-					bookImageProcessing(book,thumbnail);
+					bookImageProcessing(book,'thumbnail',thumbnail);
 
-					booksDiv.appendChild(book);
+					document.getElementById('books').appendChild(book);
 				}
 
 				function bookElementProcessing(book,bookClassName,bookElement){
@@ -90,8 +89,9 @@
 					book.appendChild(element);
 				}
 
-				function bookImageProcessing(book,image){
+				function bookImageProcessing(book,imageClassName,image){
 					let thumbnail = document.createElement("img");
+					thumbnail.className = imageClassName;
 					thumbnail.src = image ? image : "D:\\OpenClassroom\\P6\\images\\unavailable.png";
 					book.appendChild(thumbnail);
 				}

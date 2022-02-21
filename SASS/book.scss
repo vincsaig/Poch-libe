@@ -1,0 +1,33 @@
+.title, .id{
+    font-weight: bold;
+    margin-left:10px;
+}
+
+.description{
+    text-overflow: ellipsis;
+    text-justify:auto;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.book{
+    display:flex;
+    flex-direction: column;
+    border-width: 3px;
+    border-style: solid;
+    width: 20%;
+    margin:1em;
+}
+
+.thumbnail{
+    align-items: center;
+    max-width: 360px;
+    max-height: 480px;
+    margin: 0 auto;
+}
+
+.booklist{
+    align-items:center;
+    display:flex;
+    flex-wrap:wrap;
+}

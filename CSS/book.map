@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "book.css",
+	"sources": [
+		"../SASS/book.scss"
+	],
+	"sourcesContent": [
+		".title, .id{\r\n    font-weight: bold;\r\n    margin-left:10px;\r\n}\r\n\r\n.description{\r\n    text-overflow: ellipsis;\r\n    text-justify:auto;\r\n    overflow: hidden;\r\n    white-space:nowrap;\r\n}\r\n\r\n.book{\r\n    display:flex;\r\n    flex-direction: column;\r\n    border-width: 3px;\r\n    border-style: solid;\r\n    width: 20%;\r\n    margin:1em;\r\n}\r\n\r\n.thumbnail{\r\n    align-items: center;\r\n    max-width: 360px;\r\n    max-height: 480px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.booklist{\r\n    align-items:center;\r\n    display:flex;\r\n    flex-wrap:wrap;\r\n}"
+	],
+	"names": [],
+	"mappings": ";AAAA,AAAA,MAAM,EAAE,GAAG,CAAA;EACP,WAAW,EAAE,IAAI;EACjB,WAAW,EAAC,IAAI;CACnB;;;AAED,AAAA,YAAY,CAAA;EACR,aAAa,EAAE,QAAQ;EACvB,YAAY,EAAC,IAAI;EACjB,QAAQ,EAAE,MAAM;EAChB,WAAW,EAAC,MAAM;CACrB;;;AAED,AAAA,KAAK,CAAA;EACD,OAAO,EAAC,IAAI;EACZ,cAAc,EAAE,MAAM;EACtB,YAAY,EAAE,GAAG;EACjB,YAAY,EAAE,KAAK;EACnB,KAAK,EAAE,GAAG;EACV,MAAM,EAAC,GAAG;CACb;;;AAED,AAAA,UAAU,CAAA;EACN,WAAW,EAAE,MAAM;EACnB,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,KAAK;EACjB,MAAM,EAAE,MAAM;CACjB;;;AAED,AAAA,SAAS,CAAA;EACL,WAAW,EAAC,MAAM;EAClB,OAAO,EAAC,IAAI;EACZ,SAAS,EAAC,IAAI;CACjB"
+}
