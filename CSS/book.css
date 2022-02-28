@@ -37,4 +37,19 @@
   flex-wrap: wrap;
 }
 
+/* line 35, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+.flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 0 auto;
+  cursor: pointer;
+}
+
+/* line 43, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+.bookmark {
+  max-width: 20px;
+  max-height: 15px;
+}
+
 /*# sourceMappingURL=book.css.map */

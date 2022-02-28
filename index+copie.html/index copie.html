@@ -52,14 +52,15 @@
 					for(let i = 0 ; i < bookArr.length; i++){
 						//document.getElementById('livre').insertAdjacentHTML('beforeend', myArr[i].id);
 						//document.getElementById('livre').insertAdjacentHTML('beforeend', "<br>");
-						bookProcessing(bookArr[i]);
+						bookProcessing(bookArr[i],i);
 					}
 					console.log(books)
 				}
 
-				function bookProcessing(bookInfo){
+				function bookProcessing(bookInfo, bookNumber){
 					let book = document.createElement("div");
 					book.className = 'book';
+					book.id = 'book'+bookNumber;
 
 					const author = 'authors' in bookInfo.volumeInfo ? bookInfo.volumeInfo.authors[0] : 'Non renseigné';
 					const title = 'title' in bookInfo.volumeInfo ? bookInfo.volumeInfo.title : 'Non renseigné';
@@ -73,17 +74,27 @@
 					:
 					"D:\\OpenClassroom\\P6\\images\\unavailable.png";
 
-					bookElementProcessing(book,'title',title);
-					bookElementProcessing(book,'id',bookInfo.id);
-					bookElementProcessing(book,'author',author);
-					bookElementProcessing(book,'description',description);
-					bookImageProcessing(book,'thumbnail',thumbnail);
+					bookElementProcessing(book,'title',title,bookNumber);
+					bookElementProcessing(book,'id',bookInfo.id,bookNumber);
+					bookElementProcessing(book,'author',author,bookNumber);
+					bookElementProcessing(book,'description',description,bookNumber);
+					bookImageProcessing(book,'thumbnail',thumbnail,bookNumber);
+					
+					let addBookFlag = document.createElement("span");
+					addBookFlag.className = "flag";
+					addBookFlag.id = "flagcard";
+					addBookFlag.addEventListener('click', function handleClick(event){
+						addToMyPochList(event);
+					});
+					addBookFlag.innerHTML = "<img src='D:\\OpenClassroom\\P6\\Poch-libe\\images\\bookmark.png' class='bookmark'>";
+					book.appendChild(addBookFlag);
 
 					document.getElementById('books').appendChild(book);
 				}
 
-				function bookElementProcessing(book,bookClassName,bookElement){
+				function bookElementProcessing(book,bookClassName,bookElement,bookNumber){
 					let element = document.createElement("div");
+					element.id = bookClassName+bookNumber;
 					element.className = bookClassName;
 					element.innerHTML = bookElement;
 					book.appendChild(element);
@@ -94,6 +105,15 @@
 					thumbnail.className = imageClassName;
 					thumbnail.src = image ? image : "D:\\OpenClassroom\\P6\\images\\unavailable.png";
 					book.appendChild(thumbnail);
+				}
+
+				function addToMyPochList(event){
+					console.log("ParentElement ID " + event.target.parentElement);
+					var elem = document.getElementById(event.target.parentElement.parentElement.id);
+					console.log(event.target.parentElement.parentElement.id.toString()[4]);
+					var bookNumber = event.target.parentElement.parentElement.id.toString().slice(4);
+					event.target.parentElement.innerHTML = "<img src='D:\\OpenClassroom\\P6\\Poch-libe\\images\\trashcan.png' class='bookmark'>";
+					document.getElementById('content').appendChild(elem);
 				}
 			</script>
 		</div>

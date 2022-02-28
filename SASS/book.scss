@@ -31,3 +31,17 @@
     display:flex;
     flex-wrap:wrap;
 }
+
+.flag{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+}
+
+.bookmark{
+    max-width: 20px;
+    max-height: 15px;
+    margin: 0 0 0 auto;
+}
