@@ -108,11 +108,28 @@
 				}
 
 				function addToMyPochList(event){
+					let library = "";
+
+					if(sessionStorage.getItem("pochlist")){
+						library = sessionStorage.getItem("pochlist");
+					}
+
 					console.log("ParentElement ID " + event.target.parentElement);
 					var elem = document.getElementById(event.target.parentElement.parentElement.id);
 					console.log(event.target.parentElement.parentElement.id.toString()[4]);
 					var bookNumber = event.target.parentElement.parentElement.id.toString().slice(4);
+					var bookId = document.getElementById("id"+bookNumber).innerHTML;
 					event.target.parentElement.innerHTML = "<img src='D:\\OpenClassroom\\P6\\Poch-libe\\images\\trashcan.png' class='bookmark'>";
+					console.log(bookId);
+
+					if(library == ""){
+						library = bookId;
+					} else {
+						library += " " + bookId;
+					}
+					console.log(library);
+					sessionStorage.setItem("pochlist", library);
+
 					document.getElementById('content').appendChild(elem);
 				}
 			</script>
