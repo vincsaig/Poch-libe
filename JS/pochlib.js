@@ -41,8 +41,19 @@ function get(){
         alert('Title/Author fields must not be empty');
         return;
     }
-    document.getElementById('firstLine').hidden=false;
     userAction();
+}
+
+function resetForm(){
+    document.getElementById('formLoad').hidden = false;
+    document.getElementById('titleInputLabel').hidden = true;
+    document.getElementById('title').hidden = true;
+    document.getElementById('authorInputLabel').hidden = true;
+    document.getElementById('author').hidden = true;
+    document.getElementById('formSubmit').hidden = true;
+    document.getElementById('formReset').hidden = true;
+    document.getElementById('firstLine').hidden=true;
+    document.getElementById('books').innerHTML = "";
 }
 
 const userAction = async () => {
@@ -57,6 +68,7 @@ const userAction = async () => {
     //document.getElementById("livre").innerHTML = JSON.stringify(myJson);
     const bookArr = myJson.items;
     if(bookArr != null){
+        document.getElementById('firstLine').hidden=false;
         for(let i = 0 ; i < bookArr.length; i++){
             //document.getElementById('livre').insertAdjacentHTML('beforeend', myArr[i].id);
             //document.getElementById('livre').insertAdjacentHTML('beforeend', "<br>");
