@@ -1,47 +1,122 @@
+@mixin theme($theme: LightGray) {
+    background: $theme;
+    box-shadow: 0 0 1px rgba(Black, .25);
+}
+
+.formStyle{
+    margin-left:1%;
+}
+
+.formButton{
+    @extend .formStyle;
+    background:green;
+    color:white;
+    width:100px;
+}
+
+.formresetButton{
+    @extend .formButton;
+    background:red;
+}
+
+.submitButton{
+    @extend .formButton;
+    width:150px;
+    height:50px;
+    font-size: large;
+    align-content:center;
+}
+
+h1{
+    @include theme;
+}
+
+h1,h2{
+    text-align:center;
+}
+
+.title{
+    text-align:center;
+    font-size:20px;
+}
+
 .title, .id{
     font-weight: bold;
-    margin-left:10px;
 }
 
-.description{
-    text-overflow: ellipsis;
-    text-justify:auto;
-    overflow: hidden;
-    white-space:nowrap;
-}
-
-.book{
-    display:flex;
-    flex-direction: column;
-    border-width: 3px;
-    border-style: solid;
-    width: 20%;
-    margin:1em;
-}
-
-.thumbnail{
-    align-items: center;
-    max-width: 360px;
-    max-height: 480px;
-    margin: 0 auto;
+.id,.author,.description{
+    margin-left:3%;
 }
 
 .booklist{
     align-items:center;
     display:flex;
     flex-wrap:wrap;
+    .book{
+        @include theme;
+        display:flex;
+        flex-direction: column;
+        border-width: 3px;
+        border-style: solid;
+
+        .description{
+            text-overflow: ellipsis;
+            text-justify:auto;
+            overflow: hidden;
+            white-space:nowrap;
+        }
+        
+        .thumbnail{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            max-width: 360px;
+            max-height: 480px;
+        }
+        
+        .flag{
+            display: flex;
+            margin: 0 0 0 auto;
+            cursor: pointer;
+        }
+    }
 }
 
-.flag{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0 0 0 auto;
-    cursor: pointer;
-}
+@media only screen and (max-width: 320px){
+    /*style for smart phones*/
+    .bookmark{
+        max-width: 30px;
+        max-height: 20px;
+    }
 
-.bookmark{
-    max-width: 20px;
-    max-height: 15px;
-    margin: 0 0 0 auto;
+    .book{
+        width: 90%;
+        margin:1em;
+    }
+}
+    
+    @media only screen and (min-width: 321px) and (max-width: 799px){
+    /*style for tablets*/
+    .bookmark{
+        max-width: 30px;
+        max-height: 20px;
+    } 
+    
+    .book{
+        width: 90%;
+        margin:1em;
+    }
+}
+    
+    @media only screen and (min-width: 800px){
+    /*style for all other screens*/
+    .bookmark{
+        max-width: 30px;
+        max-height: 20px;
+    }
+
+    .book{
+        width: 30%;
+        margin:1em;
+    }
 }
