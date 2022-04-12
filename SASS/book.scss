@@ -11,39 +11,42 @@
     @extend .formStyle;
     background:green;
     color:white;
-    width:100px;
+    width:150px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-radius:10px;
+    font-size:large;
 }
 
 .formresetButton{
     @extend .formButton;
     background:red;
+    margin-top:10px;
 }
 
 .submitButton{
     @extend .formButton;
-    width:150px;
-    height:50px;
+    display:flex;
+    margin:auto;
+    justify-content: center;
     font-size: large;
 }
 
-h1{
-    @include theme;
+.submitButtonHide{
+    display:none;
 }
 
 h1,h2{
     text-align:center;
 }
 
-.title{
-    text-align:center;
-    font-size:20px;
-}
-
 .title, .id{
     font-weight: bold;
 }
 
-.id,.author,.description{
+.title,.id,.author,.description{
+    padding:2px;
+    margin-top:0;
     margin-left:3%;
 }
 
@@ -53,7 +56,7 @@ h1,h2{
     flex-wrap:wrap;
     .book{
         @include theme;
-        height:360px;
+        height:400px;
         display:flex;
         flex-direction: column;
         border-width: 3px;
@@ -61,9 +64,10 @@ h1,h2{
 
         .description{
             text-overflow: ellipsis;
-            text-justify:auto;
+            word-wrap: break-word;
             overflow: hidden;
-            white-space:nowrap;
+            max-height: 4em;
+            line-height: 1em;
         }
         
         .thumbnail{
@@ -72,11 +76,13 @@ h1,h2{
             max-width: 240px;
             max-height: 360px;
         }
-        
+
         .flag{
             display: flex;
-            margin: 0 0 0 auto;
+            margin:0 0 0 auto;
             cursor: pointer;
+            padding-right:7px;
+            padding-top:5px;
         }
     }
 }

@@ -7,75 +7,77 @@
 .formButton, .formresetButton, .submitButton {
   background: green;
   color: white;
-  width: 100px;
-}
-
-/* line 17, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
-.formresetButton {
-  background: red;
-}
-
-/* line 22, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
-.submitButton {
   width: 150px;
-  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
   font-size: large;
 }
 
-/* line 29, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
-h1 {
-  background: LightGray;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+/* line 21, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+.formresetButton {
+  background: red;
+  margin-top: 10px;
 }
 
-/* line 33, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 27, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+.submitButton {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  font-size: large;
+}
+
+/* line 35, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+.submitButtonHide {
+  display: none;
+}
+
+/* line 39, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 h1, h2 {
   text-align: center;
 }
 
-/* line 37, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
-.title {
-  text-align: center;
-  font-size: 20px;
-}
-
-/* line 42, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 43, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 .title, .id {
   font-weight: bold;
 }
 
-/* line 46, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
-.id, .author, .description {
+/* line 47, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+.title, .id, .author, .description {
+  padding: 2px;
+  margin-top: 0;
   margin-left: 3%;
 }
 
-/* line 50, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 53, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 .booklist {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-/* line 54, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 57, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 .booklist .book {
   background: LightGray;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
-  height: 360px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   border-width: 3px;
   border-style: solid;
 }
 
-/* line 62, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 65, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 .booklist .book .description {
   text-overflow: ellipsis;
-  text-justify: auto;
+  word-wrap: break-word;
   overflow: hidden;
-  white-space: nowrap;
+  max-height: 4em;
+  line-height: 1em;
 }
 
-/* line 69, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 73, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 .booklist .book .thumbnail {
   display: block;
   margin: auto auto auto auto;
@@ -83,21 +85,23 @@ h1, h2 {
   max-height: 360px;
 }
 
-/* line 76, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+/* line 80, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
 .booklist .book .flag {
   display: flex;
   margin: 0 0 0 auto;
   cursor: pointer;
+  padding-right: 7px;
+  padding-top: 5px;
 }
 
 @media only screen and (max-width: 320px) {
   /*style for smart phones*/
-  /* line 86, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+  /* line 92, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
   .bookmark {
     max-width: 30px;
     max-height: 20px;
   }
-  /* line 91, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+  /* line 97, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
   .book {
     width: 90%;
     margin: 1em;
@@ -106,12 +110,12 @@ h1, h2 {
 
 @media only screen and (min-width: 321px) and (max-width: 799px) {
   /*style for tablets*/
-  /* line 99, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+  /* line 105, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
   .bookmark {
     max-width: 30px;
     max-height: 20px;
   }
-  /* line 104, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+  /* line 110, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
   .book {
     width: 90%;
     margin: 1em;
@@ -120,12 +124,12 @@ h1, h2 {
 
 @media only screen and (min-width: 800px) {
   /*style for all other screens*/
-  /* line 112, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+  /* line 118, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
   .bookmark {
     max-width: 30px;
     max-height: 20px;
   }
-  /* line 117, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
+  /* line 123, D:/OpenClassroom/P6/Poch-libe/SASS/book.scss */
   .book {
     width: 30%;
     margin: 1em;
