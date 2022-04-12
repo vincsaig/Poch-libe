@@ -68,7 +68,6 @@ const userAction = async () => {
     //document.getElementById("livre").innerHTML = JSON.stringify(myJson);
     const bookArr = myJson.items;
     if(bookArr != null){
-        document.getElementById('firstLine').hidden=false;
         for(let i = 0 ; i < bookArr.length; i++){
             //document.getElementById('livre').insertAdjacentHTML('beforeend', myArr[i].id);
             //document.getElementById('livre').insertAdjacentHTML('beforeend', "<br>");
@@ -76,8 +75,12 @@ const userAction = async () => {
         }
     }
     else{
-        document.getElementById('books').innerHTML = "Aucun livre n'a été trouvé";
+        let notFound = document.createElement("div");
+        notFound.className="bookNotFound";
+        notFound.innerHTML="Aucun livre n'a été trouvé";
+        document.getElementById('books').appendChild(notFound);
     }
+    document.getElementById('firstLine').hidden=false;
     console.log(books)
 }
 
