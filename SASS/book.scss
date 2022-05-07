@@ -105,7 +105,7 @@ h1,h2{
     }
 }
     
-    @media only screen and (min-width: 321px) and (max-width: 799px){
+@media only screen and (min-width: 321px) and (max-width: 799px){
     /*style for tablets*/
     .bookmark{
         max-width: 30px;
@@ -118,7 +118,7 @@ h1,h2{
     }
 }
     
-    @media only screen and (min-width: 800px){
+@media only screen and (min-width: 800px){
     /*style for all other screens*/
     .bookmark{
         max-width: 30px;
