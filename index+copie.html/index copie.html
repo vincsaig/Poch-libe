@@ -4,7 +4,7 @@
 		<title>Poch'Lib</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="D:\OpenClassroom\P6\Poch-libe\CSS\book.css">
+		<link rel="stylesheet" href="../CSS/book.css">
   	</head>
   	<body onload="displayPochList">
 		<div id="myBooks">
@@ -13,20 +13,23 @@
 			<h2>Nouveau Livre</h2>
 			<button class="submitButton" id="formLoad" type="submit" onclick="loadForm()">Ajouter un livre</button>
 			<form id="submitForm" class="formStyle">
-				<label for="title" id ="titleInputLabel" hidden="true">Titre du livre</label></br>
-				<input type="text" id="title" hidden="true">
-				</br>
-				<label for="Author" id ="authorInputLabel" hidden="true">Auteur</label></br>
-				<input type="text" id="author" hidden="true">
-			</form></br>
-			<button class="formButton" id="formSubmit" type="submit" onclick="get()" hidden="true">Rechercher</button></br>
-			<button class="formresetButton" id="formReset" type="submit" onclick="resetForm()" hidden="true">Annuler</button>
-			<hr id="firstLine" hidden="true">
+				<label for="title" id ="titleInputLabel" hidden>Titre du livre</label>
+				<br>
+				<input type="text" id="title" hidden>
+				<br>
+				<label for="author" id ="authorInputLabel" hidden>Auteur</label>
+				<br>
+				<input type="text" id="author" hidden>
+			</form><br>
+			<button class="formButton" id="formSubmit" type="submit" onclick="get()" hidden>Rechercher</button>
+			<br>
+			<button class="formresetButton" id="formReset" type="submit" onclick="resetForm()" hidden>Annuler</button>
+			<hr id="firstLine" hidden>
 			<div id="books" class = "booklist"></div>
 			<hr>
 			<h2>Ma poch'liste</h2>
 			<div id="pochlist" class = "booklist"></div>
-			<script type = "text/javascript" src="D:\OpenClassroom\P6\Poch-libe\JS\pochlib.js"></script>
+			<script src="../JS/pochlib.js"></script>
 			<script src="https://kit.fontawesome.com/796f119faf.js" crossorigin="anonymous"></script>
 		</div>
   	</body>
