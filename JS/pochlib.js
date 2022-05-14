@@ -4,7 +4,7 @@ function displayPochList(){
     
         let src = document.getElementById("pochlist");
         //let div = document.createElement("div");
-        let books = sessionStorage.getItem("pochlist").split(",");
+        let books = library.split(",");
     
         books.forEach((e) => {
         console.log(e);
