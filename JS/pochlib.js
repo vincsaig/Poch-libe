@@ -60,17 +60,11 @@ const userAction = async () => {
     document.getElementById('books').innerHTML = "";
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
-    console.log('https://www.googleapis.com/books/v1/volumes?q='+ title + '+inauthor:' + author)
     const response = await fetch('https://www.googleapis.com/books/v1/volumes?q='+ title + '+inauthor:' + author);
     const myJson = await response.json(); //extract JSON from the http response
-    console.log(myJson);
-    //console.log(JSON.stringify(myJson));
-    //document.getElementById("livre").innerHTML = JSON.stringify(myJson);
     const bookArr = myJson.items;
     if(bookArr != null){
         for(let i = 0 ; i < bookArr.length; i++){
-            //document.getElementById('livre').insertAdjacentHTML('beforeend', myArr[i].id);
-            //document.getElementById('livre').insertAdjacentHTML('beforeend', "<br>");
             bookProcessing(bookArr[i]);
         }
     }
@@ -97,7 +91,7 @@ function bookProcessing(bookInfo){
     ?
     bookInfo.volumeInfo.imageLinks.thumbnail
     :
-    "D:\\OpenClassroom\\P6\\Poch-libe\\images\\unavailable.png";
+    "..\\images\\unavailable.png";
     let description = 'description' in bookInfo.volumeInfo ? bookInfo.volumeInfo.description : 'Non renseigné';
 
     if(description.length > 200){
@@ -130,7 +124,7 @@ function bookElementProcessing(book,bookClassName,bookElement){
 function bookImageProcessing(book,imageClassName,image){
     let thumbnail = document.createElement("img");
     thumbnail.className = imageClassName;
-    thumbnail.src = image ? image : "D:\\OpenClassroom\\P6\\images\\unavailable.png";
+    thumbnail.src = image;
     book.appendChild(thumbnail);
 }
 
@@ -139,8 +133,7 @@ function addToMyPochList(event){
     if(sessionStorage.getItem("pochlist")){
         library = sessionStorage.getItem("pochlist");
     }
-
-    console.log("ParentElement ID " + event.target.parentElement);
+;
     var bookElem = document.createElement("div");
     bookElem.className = "book";
     bookElem.innerHTML = event.target.parentElement.parentElement.innerHTML;
@@ -152,18 +145,13 @@ function addToMyPochList(event){
     }
 
     var spanElem = bookElem.childNodes[0];
-    /*event.target.parentElement.addEventListener('click', function handleClick(event){
-        removeFromMyPochList(event);
-    });*/
-    console.log("HTMLid"+bookElem);
+
     spanElem.removeEventListener('click', addToMyPochList);
     spanElem.addEventListener('click',removeFromMyPochList);
     spanElem.innerHTML = "<i class='fa-solid fa-trash-can'></i>";
-    console.log(bookId);
 
     library += bookId+",";
 
-    console.log(library);
     sessionStorage.setItem("pochlist", library);
     sessionStorage.setItem(bookId, bookElem.innerHTML);
 
