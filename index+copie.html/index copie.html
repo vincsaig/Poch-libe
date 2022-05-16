@@ -15,16 +15,17 @@
 			<form id="submitForm" class="formStyle">
 				<label for="title" id ="titleInputLabel" hidden>Titre du livre</label>
 				<br>
-				<input type="text" id="title" hidden>
+				<input class="titleInput"type="text" id="title" hidden>
 				<br>
 				<label for="author" id ="authorInputLabel" hidden>Auteur</label>
 				<br>
-				<input type="text" id="author" hidden>
+				<input class="authorInput"type="text" id="author" hidden>
 			</form><br>
 			<button class="formButton" id="formSubmit" type="submit" onclick="get()" hidden>Rechercher</button>
 			<br>
 			<button class="formresetButton" id="formReset" type="submit" onclick="resetForm()" hidden>Annuler</button>
 			<hr id="firstLine" hidden>
+			<h2 id="searchResult" hidden>Résultat de la recherche</h2>
 			<div id="books" class = "booklist"></div>
 			<hr>
 			<h2>Ma poch'liste</h2>

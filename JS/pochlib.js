@@ -53,6 +53,7 @@ function resetForm(){
     document.getElementById('formSubmit').hidden = true;
     document.getElementById('formReset').hidden = true;
     document.getElementById('firstLine').hidden=true;
+    document.getElementById('searchResult').hidden=true;
     document.getElementById('books').innerHTML = "";
 }
 
@@ -75,7 +76,7 @@ const userAction = async () => {
         document.getElementById('books').appendChild(notFound);
     }
     document.getElementById('firstLine').hidden=false;
-    console.log(books)
+    document.getElementById('searchResult').hidden=false;
 }
 
 function bookProcessing(bookInfo){
